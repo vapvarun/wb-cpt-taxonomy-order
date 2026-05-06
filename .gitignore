@@ -1,0 +1,34 @@
+# macOS
+.DS_Store
+._*
+
+# Editors
+.idea/
+.vscode/
+*.sublime-*
+*.swp
+*~
+
+# Node / build artifacts (not used yet, but reserved)
+node_modules/
+npm-debug.log
+yarn-error.log
+package-lock.json
+
+# Composer (not used yet, but reserved)
+vendor/
+composer.lock
+
+# Build / release artifacts
+*.zip
+build/
+dist/
+
+# Logs
+*.log
+debug.log
+error_log
+
+# Local env
+.env
+.env.local
