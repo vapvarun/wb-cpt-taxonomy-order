@@ -1183,3 +1183,24 @@ class WB_CPT_Taxonomy_Order {
 
 // Initialize the plugin.
 WB_CPT_Taxonomy_Order::get_instance();
+
+/**
+ * Load LearnDash integration when LearnDash is active.
+ *
+ * Boots after plugins_loaded so SFWD_LMS class and helper functions exist.
+ */
+add_action(
+	'plugins_loaded',
+	function () {
+		if ( ! class_exists( 'SFWD_LMS' ) ) {
+			return;
+		}
+
+		$file = WB_CPTO_PATH . 'includes/class-wb-cpto-learndash.php';
+		if ( file_exists( $file ) ) {
+			require_once $file;
+			WB_CPTO_LearnDash::get_instance();
+		}
+	},
+	20
+);
